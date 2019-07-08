@@ -1,6 +1,6 @@
 var globalVariable = 'this is global';
 
-function foo_one(){
+function fooOne() {
     for (let i = 0; i < 3; i++) {
         var variable = 'var variable';
         let letVariable = 'let variable';
@@ -18,7 +18,7 @@ function foo_one(){
     var localVariable = 'local variable';
 }
 
-foo_one();
+fooOne();
 
 //  ispisace se
 console.log(anotherGlobal);
