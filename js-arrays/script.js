@@ -1,4 +1,4 @@
-var fruits = ['orange', 'mandarine', 'lemon', 'grapefruit'];
+let fruits = ["orange", "mandarine", "lemon", "grapefruit"];
 
 for (let i = 0; i < fruits.length; i++) {
     console.log(fruits[i]);
@@ -9,9 +9,9 @@ fruits.forEach(fruit => {
 });
 
 //  1.
-function rotateArray( array, steps ) {
+const rotateArray = ( array, steps ) => {
     for (let i = 0; i < steps; i++) {
-        var last = array.pop();
+        const last = array.pop();
         array.unshift(last);
     }
     
@@ -21,53 +21,38 @@ function rotateArray( array, steps ) {
 console.log(rotateArray(fruits, 1));
 
 //  2.
-var numbers = [1,2,3,4,5];
+let numbers = [1,2,3,4,5];
 
-function addNumbersStarting50( numbersArray ) {
+const addNumbers = ( numbersArray, limit ) => numbersArray.reduce(( sum, current ) => sum + current, limit);
 
-    return numbersArray.reduce(( sum, current ) => sum + current, 50)
-}
-
-console.log(addNumbersStarting50(numbers));
+console.log(addNumbers(numbers, 50));
 
 //  3.
-function countdown( length ) {
-    var array = [0];
-    while ( array[array.length - 1] < length) {
-        let last = array[array.length - 1];
-        array.push(++last);
-    }
-    
-    var finalArray = [];
-    array.forEach(element => {
-        newArray = [element]
-        while ( newArray.length <= element ) {
-            let last = newArray[newArray.length - 1];
-            newArray.push(--last)
-        }
-        finalArray.push(newArray);
-    });
+function countdown(number) {
+    const array = Array(number * 2 + 1).fill(0);
 
-    return finalArray;
+    return array.map((n, index) => (
+        n + index <= number
+        ? n + index
+        : number - (index - number)
+    ))
 }
 
 console.log(countdown(4))
 
 //  4.
-var myZoo = [
+const myZoo = [
     ["King Kong", ["gorilla", 42]],
     ["Nemo", ["fish", 5]],
     ["Punxsutawney Phil", ["groundhog", 11]]
 ];
 
 function zooInventory( inventory ) {
-    var arrayOfStrings = [];
-    inventory.forEach(element => {
-        let animal = element.flat();
-        arrayOfStrings.push(animal[0] + ' the ' + animal[1] + ' is ' + animal[2]);
-    });
-    
-    return arrayOfStrings;
+    return inventory.map(animal => {
+        const [name, [type, age] = info] = animal
+
+        return `${name} the ${type} is ${age}.`
+    })
 }
 
-console.log(zooInventory(myZoo));
+console.log(zooInventory(myZoo))

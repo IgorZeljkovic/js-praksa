@@ -1,22 +1,22 @@
-var promise = new Promise( (resolve, reject) => {
+const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
         let number = Math.random() * 10;
         number < 5
-            ? reject('Error!')
-            : resolve('Success!')
+            ? reject("Error!")
+            : resolve("Success!")
     }, 1000);
 });
 
-promise.then( value => {
+promise.then(value => {
     console.log(value);
 }).catch( error => {
     console.log(error);
 })
 
-var otherPromise = Promise.resolve('Promise!');
+const otherPromise = Promise.resolve("Promise!");
 
 Promise.all([promise, otherPromise]).then( values => {
     console.log(values)
-}).catch( errorValues => {
+}).catch(errorValues => {
     console.log(errorValues);
 });

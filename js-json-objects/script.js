@@ -21,5 +21,4 @@ jsonArrayOfNumbers = JSON.parse(jsonNumbers).jsonArrayOfNumbers;
 
 for (let i = 0; i < jsonArrayOfNumbers.length; i++) {
     const number = jsonArrayOfNumbers[i];
-    
 }
