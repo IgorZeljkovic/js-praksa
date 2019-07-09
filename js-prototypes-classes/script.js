@@ -1,5 +1,5 @@
 class Character {
-    constructor(x, y){
+    constructor (x, y) {
         if(new.target === Character){
             throw new TypeError("Cannot instantiate this class!")
         }
@@ -26,22 +26,28 @@ class Character {
 Character.count = 0;
 
 class PlayerCharacter extends Character {
-    constructor(x, y){
+    constructor (x, y) {
         super(x, y);
     }
 
 }
 
 class NonPlayerCharacter extends Character {
-    constructor(x, y){
+    constructor (x, y) {
         super(x, y);
     }
 }
 
+const randomPosition = () => {
+    const x = Math.floor(Math.random() * 10 + 1);
+    const y = Math.floor(Math.random() * 10 + 1);
+    return [x, y];
+}
+
 console.log("Character count: " + Character.count);
 
-var player1 = new PlayerCharacter(...randomPosition());
-var player2 = new NonPlayerCharacter(...randomPosition());
+const player1 = new PlayerCharacter(...randomPosition());
+const player2 = new NonPlayerCharacter(...randomPosition());
 
 console.log("Player1 position is x=" + player1.xilon + " and y=" + player1.yilon);
 console.log("Player2 position is x=" + player2.xilon + " and y=" + player2.yilon);
@@ -52,10 +58,4 @@ player1.position = { x: 5, y: 5 };
 console.log("Player1 position is x=" + player1.xilon + " and y=" + player1.yilon);
 console.log("Player2 position is x=" + player2.xilon + " and y=" + player2.yilon);
 
-var characterPlayer = new Character(8,8);
-
-function randomPosition() {
-    var x = Math.floor(Math.random() * 10 + 1);
-    var y = Math.floor(Math.random() * 10 + 1);
-    return [x, y];
-}
+const characterPlayer = new Character(8,8);
