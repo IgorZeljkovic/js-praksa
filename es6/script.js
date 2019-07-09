@@ -58,9 +58,7 @@ sayHello()
 //  4.
 var promiseMe = function () {
     return new Promise( resolve => {
-        setTimeout(function(){
-            resolve("promise");
-        }, 1000);
+        setTimeout(() => resolve("promise"), 1000);
     });
 };
 
@@ -69,10 +67,7 @@ async function promiseCall () {
     var awaitPromise = await promiseMe();
     console.log(awaitPromise);
 
-    var regularPromise = promiseMe();
-    regularPromise.then(function(value){
-        console.log(value);
-    })
+    promiseMe().then(value => console.log(value));
 }
 
 promiseCall();
